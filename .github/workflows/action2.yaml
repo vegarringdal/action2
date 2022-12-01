@@ -25,5 +25,15 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
+      - name: Tools - checkout
+        uses: actions/checkout@v3
+        with:
+          ref: ${{github.ref_name}}
+          path: tools
+
+      - name: Echo response
+        working-directory: ./tools
+        run: node test
+
       - name: Echo response
         run: echo Someone called for me? ${{inputs.config}}
