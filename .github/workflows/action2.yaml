@@ -6,7 +6,9 @@ on:
       config:
         required: true
         type: string
-    secrets: inherit
+    secrets:
+      TEST1:
+        required: true
 
 
 jobs:
@@ -24,4 +26,4 @@ jobs:
           node-version: ${{ matrix.node-version }}
 
       - name: Echo response
-        run: echo Someone called for me? ${{input.config}}
+        run: echo Someone called for me? ${{input.config}} ${{contains(env.TEST1, "TEST")}}
