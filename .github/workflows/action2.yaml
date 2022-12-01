@@ -26,4 +26,4 @@ jobs:
           node-version: ${{ matrix.node-version }}
 
       - name: Echo response
-        run: echo Someone called for me? ${{inputs.config}} ${{contains(secrets.TEST1, "TEST")}}
+        run: echo Someone called for me? ${{inputs.config}} ${{contains("TEST", "TEST")}}
